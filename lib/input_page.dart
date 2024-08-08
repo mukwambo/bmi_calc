@@ -2,13 +2,7 @@ import 'package:flutter/material.dart';
 import 'reusable_card.dart';
 import 'top_row_card_style.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-// Constant variables
-const bottomContainerHeight = 80.0;
-const bottomContainerColor = Color(0xFFEB1555);
-const theCardColor = Color(0xFF1D1E33);
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
+import 'constants.dart';
 
 enum Gender {
   male,
@@ -34,73 +28,80 @@ class _InputPageState extends State<InputPage> {
         title: const Text('BMI CALCULATOR'),
         centerTitle: true,
       ),
-      body: Column(children: [
-        Expanded(
-          child: Row(children: [
-            Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedGender = Gender.male;
-                  });
-                },
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Row(children: [
+              Expanded(
                 child: ReusableCard(
+                  onPress: () {
+                    setState(() {
+                      selectedGender = Gender.male;
+                    });
+                  },
                   cardColor: selectedGender == Gender.male
-                      ? activeCardColor
-                      : inactiveCardColor,
+                      ? kActiveCardColor
+                      : kInactiveCardColor,
                   cardChild: const TopRowCardStyle(
                     genderIcon: FontAwesomeIcons.mars,
                     genderType: 'MALE',
                   ),
                 ),
               ),
-            ),
-            Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedGender = Gender.female;
-                  });
-                },
+              Expanded(
                 child: ReusableCard(
+                  onPress: () {
+                    setState(() {
+                      selectedGender = Gender.female;
+                    });
+                  },
                   cardColor: selectedGender == Gender.female
-                      ? activeCardColor
-                      : inactiveCardColor,
+                      ? kActiveCardColor
+                      : kInactiveCardColor,
                   cardChild: const TopRowCardStyle(
                     genderIcon: FontAwesomeIcons.venus,
                     genderType: 'FEMALE',
                   ),
                 ),
               ),
-            ),
-          ]),
-        ),
-        const Expanded(
-          child: ReusableCard(
-            cardColor: theCardColor,
+            ]),
           ),
-        ),
-        const Expanded(
-          child: Row(children: [
-            Expanded(
-              child: ReusableCard(
-                cardColor: theCardColor,
+          const Expanded(
+            child: ReusableCard(
+              cardColor: kTheCardColor,
+              cardChild: Column(
+                children: [
+                  Text(
+                    'HEIGHT',
+                    style: kLabelTextStyle,
+                  )
+                ],
               ),
             ),
-            Expanded(
-              child: ReusableCard(
-                cardColor: theCardColor,
+          ),
+          const Expanded(
+            child: Row(children: [
+              Expanded(
+                child: ReusableCard(
+                  cardColor: kTheCardColor,
+                ),
               ),
-            ),
-          ]),
-        ),
-        Container(
-          color: bottomContainerColor,
-          margin: const EdgeInsets.only(top: 10),
-          width: double.infinity,
-          height: bottomContainerHeight,
-        )
-      ]),
+              Expanded(
+                child: ReusableCard(
+                  cardColor: kTheCardColor,
+                ),
+              ),
+            ]),
+          ),
+          Container(
+            color: kBottomContainerColor,
+            margin: const EdgeInsets.only(top: 10),
+            width: double.infinity,
+            height: kBottomContainerHeight,
+          )
+        ],
+      ),
     );
   }
 }

@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-
-// The label textStyle
-const labelTextStyle = TextStyle(
-  fontSize: 18.0,
-  color: Color(0xFF8D8E98),
-);
+import 'constants.dart';
 
 class TopRowCardStyle extends StatelessWidget {
   final IconData genderIcon;
@@ -29,7 +24,7 @@ class TopRowCardStyle extends StatelessWidget {
         ),
         Text(
           genderType,
-          style: labelTextStyle,
+          style: kLabelTextStyle,
         )
       ],
     );
