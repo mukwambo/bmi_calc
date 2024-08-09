@@ -20,6 +20,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
+  int _height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -67,14 +68,47 @@ class _InputPageState extends State<InputPage> {
               ),
             ]),
           ),
-          const Expanded(
+          Expanded(
             child: ReusableCard(
               cardColor: kTheCardColor,
               cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'HEIGHT',
                     style: kLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        _height.toString(),
+                        style: kLargeNumberTextStyle,
+                      ),
+                      const Text(
+                        'cm',
+                        style: kLabelTextStyle,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: _height.toDouble(),
+                    min: kMinimum,
+                    max: kMaximum,
+                    activeColor: kSliderActiveColor,
+                    inactiveColor: kSliderInactiveColor,
+                    divisions: kDivisions,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        /*
+                        Since the _height is an integer and the newValue is a double,
+                        the round() method changes the newValue to the nearest whole number.
+                         */
+                        _height = newValue.round();
+                      });
+                    },
                   )
                 ],
               ),
