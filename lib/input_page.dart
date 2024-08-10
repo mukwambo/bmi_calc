@@ -93,40 +93,53 @@ class _InputPageState extends State<InputPage> {
                       ),
                     ],
                   ),
-                  Slider(
-                    value: _height.toDouble(),
-                    min: kMinimum,
-                    max: kMaximum,
-                    activeColor: kSliderActiveColor,
-                    inactiveColor: kSliderInactiveColor,
-                    divisions: kDivisions,
-                    onChanged: (double newValue) {
-                      setState(() {
-                        /*
-                        Since the _height is an integer and the newValue is a double,
-                        the round() method changes the newValue to the nearest whole number.
-                         */
-                        _height = newValue.round();
-                      });
-                    },
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: kSliderActiveColor,
+                      inactiveTrackColor: kSliderInactiveColor,
+                      thumbColor: kBottomContainerColor,
+                      overlayColor: kThumbOverlayColor,
+                      thumbShape: const RoundSliderThumbShape(
+                        enabledThumbRadius: 15.0,
+                      ),
+                      overlayShape:
+                          const RoundSliderOverlayShape(overlayRadius: 30.0),
+                    ),
+                    child: Slider(
+                      value: _height.toDouble(),
+                      min: kMinimum,
+                      max: kMaximum,
+                      divisions: kDivisions,
+                      onChanged: (double newValue) {
+                        setState(() {
+                          /*
+                          Since the _height is an integer and the newValue is a double,
+                          the round() method changes the newValue to the nearest whole number.
+                           */
+                          _height = newValue.round();
+                        });
+                      },
+                    ),
                   )
                 ],
               ),
             ),
           ),
           const Expanded(
-            child: Row(children: [
-              Expanded(
-                child: ReusableCard(
-                  cardColor: kTheCardColor,
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    cardColor: kTheCardColor,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: ReusableCard(
-                  cardColor: kTheCardColor,
+                Expanded(
+                  child: ReusableCard(
+                    cardColor: kTheCardColor,
+                  ),
                 ),
-              ),
-            ]),
+              ],
+            ),
           ),
           Container(
             color: kBottomContainerColor,

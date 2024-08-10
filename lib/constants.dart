@@ -26,6 +26,7 @@ const kDivisions = 20;
 
 // Slider active and inactive colors
 const kSliderActiveColor =
-    Color(0xFFEB1555); // The color between the thumb and the kMinimum
+    Color(0xFFFFFFFF); // The color between the thumb and the kMinimum
 const kSliderInactiveColor =
     Color(0xFF8D8E98); // The color between the thumb and the kMaximum
+const kThumbOverlayColor = Color(0x29EB1555);
