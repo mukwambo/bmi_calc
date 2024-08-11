@@ -9,6 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      /* This is the overall theme of the app. We overrode the dark theme then made custom changes using the
+      copyWith() method*/
       theme: ThemeData.dark().copyWith(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0A0E21)),
         primaryColor: const Color(0xFF0A0E21),
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color(0xFF0A0E21),
       ),
+      // Remove the debug banner displayed on the far right corner of the emulator
       debugShowCheckedModeBanner: false,
       home: const InputPage(),
     );

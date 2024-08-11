@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
+/*
+Since the top row cards share the same design , we apply DRY principle by creating a separate
+reusable class to be shared by the two cards
+ */
 class TopRowCardStyle extends StatelessWidget {
   final IconData genderIcon;
   final String genderType;

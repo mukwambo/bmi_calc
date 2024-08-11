@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+/*
+Given the many constants we use in the app, its preferred you crate a
+separate class for the to allow reusability
+ */
 
 // Constant variables
 const kBottomContainerHeight = 80.0;

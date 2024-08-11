@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/*
+This is a separate class where we define our custom icon button using the properties used to create
+a RawMaterialButton as defined in the flutter source code
+ */
 class RoundIconButton extends StatelessWidget {
   final IconData childIcon;
   final void Function() onPressed;

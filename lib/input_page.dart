@@ -5,6 +5,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
 import 'round_icon_button_design.dart';
 
+/*
+* Since we only have two types of gender, we use an enum, this tells the computer
+*  that we only have two options to choose from and nothing else. This makes our
+*  code simple and runs smoothly.
+*/
 enum Gender {
   male,
   female,
@@ -41,9 +46,16 @@ class _InputPageState extends State<InputPage> {
                 child: ReusableCard(
                   onPress: () {
                     setState(() {
+                      /*
+                      setState in this case rebuilds the widget with the relevant changes upton click.
+                       */
                       selectedGender = Gender.male;
                     });
                   },
+                  /*
+                  After the widget has been rebuilt, the card color changes from inactive to active
+                  depending on the clicked card. The ternary operator below facilitates the color change.
+                   */
                   cardColor: selectedGender == Gender.male
                       ? kActiveCardColor
                       : kInactiveCardColor,
