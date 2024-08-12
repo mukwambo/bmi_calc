@@ -230,11 +230,23 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/resultsPage');
+            },
+            child: Container(
+              color: kBottomContainerColor,
+              margin: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(bottom: 10),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              child: const Center(
+                child: Text(
+                  'CALCULATE',
+                  style: kButtonTextStyle,
+                ),
+              ),
+            ),
           )
         ],
       ),

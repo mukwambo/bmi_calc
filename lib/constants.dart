@@ -23,6 +23,12 @@ const kLargeNumberTextStyle = TextStyle(
   fontWeight: FontWeight.w900,
 );
 
+// The button textStyle
+const kButtonTextStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+);
+
 // Slider constant values
 const kMinimum = 120.0;
 const kMaximum = 220.0;

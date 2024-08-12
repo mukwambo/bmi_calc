@@ -1,3 +1,4 @@
+import 'package:bmi_calc/results_page.dart';
 import 'package:flutter/material.dart';
 import 'input_page.dart';
 
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
       // Remove the debug banner displayed on the far right corner of the emulator
       debugShowCheckedModeBanner: false,
       home: const InputPage(),
+
+      // Named routes are a simpler way of navigating between screens
+      routes: {'/resultsPage': (context) => const ResultsPage()},
     );
   }
 }
