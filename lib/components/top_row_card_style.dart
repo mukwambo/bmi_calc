@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
 
 /*
 Since the top row cards share the same design , we apply DRY principle by creating a separate

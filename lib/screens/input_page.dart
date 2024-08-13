@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'reusable_card.dart';
-import 'top_row_card_style.dart';
+import '../components/reusable_card.dart';
+import '../components/top_row_card_style.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'constants.dart';
-import 'round_icon_button_design.dart';
+import '../constants.dart';
+import '../components/round_icon_button_design.dart';
+import '../components/calculate_button.dart';
 
 /*
 * Since we only have two types of gender, we use an enum, this tells the computer
@@ -230,24 +231,12 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
+          CalculateButton(
+            buttonText: 'CALCULATE',
+            onTapped: () {
               Navigator.pushNamed(context, '/resultsPage');
             },
-            child: Container(
-              color: kBottomContainerColor,
-              margin: const EdgeInsets.only(top: 10),
-              padding: const EdgeInsets.only(bottom: 10),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              child: const Center(
-                child: Text(
-                  'CALCULATE',
-                  style: kButtonTextStyle,
-                ),
-              ),
-            ),
-          )
+          ),
         ],
       ),
     );

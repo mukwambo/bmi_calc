@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 /*
 Given the many constants we use in the app, its preferred you crate a
 separate class for the to allow reusability
@@ -40,3 +41,27 @@ const kSliderActiveColor =
 const kSliderInactiveColor =
     Color(0xFF8D8E98); // The color between the thumb and the kMaximum
 const kThumbOverlayColor = Color(0x29EB1555);
+
+// The result title text style
+const kResultTitleTextStyle = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
+
+// The green result label textStyle
+const kResultLabelTextStyle = TextStyle(
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+  color: Color(0xFF24D876),
+);
+
+// BMI reading textStyle
+const kBMITextStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+);
+
+// The body textStyle
+const kBodyTextStyle = TextStyle(
+  fontSize: 22.0,
+);
