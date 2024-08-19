@@ -1,3 +1,4 @@
+import 'package:bmi_calc/screens/results_page.dart';
 import 'package:flutter/material.dart';
 import '../components/reusable_card.dart';
 import '../components/top_row_card_style.dart';
@@ -5,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../constants.dart';
 import '../components/round_icon_button_design.dart';
 import '../components/calculate_button.dart';
+import 'package:bmi_calc/calculator_brain.dart';
 
 /*
 * Since we only have two types of gender, we use an enum, this tells the computer
@@ -234,7 +236,19 @@ class _InputPageState extends State<InputPage> {
           CalculateButton(
             buttonText: 'CALCULATE',
             onTapped: () {
-              Navigator.pushNamed(context, '/resultsPage');
+              CalculatorBrain calculatorBrain =
+                  CalculatorBrain(weight: _weight, height: _height);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(
+                    theBMIValue: calculatorBrain.calculateBMI(),
+                    theBMIResult: calculatorBrain.bmiResult(),
+                    theBMIComment: calculatorBrain.bmiAdvice(),
+                  ),
+                ),
+              );
             },
           ),
         ],

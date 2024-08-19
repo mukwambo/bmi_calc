@@ -4,7 +4,15 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class ResultsPage extends StatefulWidget {
-  const ResultsPage({super.key});
+  final String theBMIValue;
+  final String theBMIResult;
+  final String theBMIComment;
+  const ResultsPage({
+    super.key,
+    required this.theBMIValue,
+    required this.theBMIResult,
+    required this.theBMIComment,
+  });
 
   @override
   State<ResultsPage> createState() => _ResultsPageState();
@@ -32,7 +40,7 @@ class _ResultsPageState extends State<ResultsPage> {
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             flex: 5,
             child: ReusableCard(
               cardColor: kActiveCardColor,
@@ -41,15 +49,16 @@ class _ResultsPageState extends State<ResultsPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Normal',
+                    // To access the attributes of _ResultPageState we have to use the 'widget' otherwise it won't work
+                    widget.theBMIResult.toUpperCase(),
                     style: kResultLabelTextStyle,
                   ),
                   Text(
-                    '10.6',
+                    widget.theBMIValue,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'Your BMI is lower than normal, maybe try eat more.',
+                    widget.theBMIComment,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),

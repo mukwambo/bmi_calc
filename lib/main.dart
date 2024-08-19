@@ -1,5 +1,4 @@
 import 'package:bmi_calc/screens/input_page.dart';
-import 'package:bmi_calc/screens/results_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -27,7 +26,6 @@ class MyApp extends StatelessWidget {
 
       // Named routes are a simpler way of navigating between screens
       routes: {
-        '/resultsPage': (context) => const ResultsPage(),
         '/inputPage': (context) => const InputPage(),
       },
     );
